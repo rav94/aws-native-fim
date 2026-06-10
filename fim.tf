@@ -85,7 +85,7 @@ resource "aws_s3_bucket_policy" "fim_baselines" {
 }
 
 resource "aws_ssm_parameter" "fim_monitored_paths" {
-  name        = "/${local.name_prefix}/security/fim/monitored-paths"
+  name        = "/fim-demo/${local.name_prefix}/security/fim/monitored-paths"
   description = "Paths monitored by AWS-native FIM on ECS EC2 container hosts"
   type        = "String"
   value       = join("\n", local.fim_monitored_paths)

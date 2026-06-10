@@ -6,7 +6,7 @@ export TF_VAR_AWS_ROLE_ARN=""
 export TF_VAR_AWS_ROLE_SESSION_NAME="terraform-local-session"
 
 # Demo sizing overrides.
+export TF_VAR_root_volume_size="30"
 export TF_VAR_asg_desired_capacity="1"
 export TF_VAR_asg_max_size="2"
 export TF_VAR_enable_security_hub="false"
-

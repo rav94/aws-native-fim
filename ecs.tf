@@ -60,7 +60,7 @@ resource "aws_launch_template" "ecs" {
     device_name = "/dev/xvda"
 
     ebs {
-      volume_size           = 20
+      volume_size           = var.root_volume_size
       volume_type           = "gp3"
       encrypted             = true
       delete_on_termination = true
@@ -154,4 +154,3 @@ resource "aws_ecs_cluster_capacity_providers" "this" {
     base              = 0
   }
 }
-

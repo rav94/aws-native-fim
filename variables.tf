@@ -57,6 +57,17 @@ variable "instance_type" {
   default     = "t3.micro"
 }
 
+variable "root_volume_size" {
+  description = "Root EBS volume size in GiB. ECS optimized Amazon Linux 2023 currently requires at least 30 GiB."
+  type        = number
+  default     = 30
+
+  validation {
+    condition     = var.root_volume_size >= 30
+    error_message = "root_volume_size must be at least 30 GiB for the selected ECS optimized AMI snapshot."
+  }
+}
+
 variable "asg_min_size" {
   description = "Minimum ECS EC2 Auto Scaling Group size."
   type        = number
@@ -105,7 +116,7 @@ variable "security_hub_product_arn" {
 }
 
 variable "enable_security_hub" {
-  description = "Whether Terraform should enable Security Hub in this account/region. This can incur AWS charges."
+  description = "Whether Terraform should enable Security Hub in this account/region. Keep false when Security Hub is already enabled."
   type        = bool
-  default     = true
+  default     = false
 }

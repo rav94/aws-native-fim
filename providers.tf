@@ -1,6 +1,6 @@
 provider "aws" {
   region  = var.AWS_REGION
-  profile = var.AWS_PROFILE
+  profile = var.AWS_PROFILE != "" ? var.AWS_PROFILE : null
 
   dynamic "assume_role" {
     for_each = var.AWS_ROLE_ARN != "" ? [1] : []
