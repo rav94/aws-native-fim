@@ -1,0 +1,12 @@
+# Optional local overrides. Copy to .envrc.local and adjust as needed.
+export TF_VAR_AWS_REGION="us-east-1"
+export TF_VAR_AWS_PROFILE="emojot-dev"
+export AWS_PROFILE="$TF_VAR_AWS_PROFILE"
+export TF_VAR_AWS_ROLE_ARN=""
+export TF_VAR_AWS_ROLE_SESSION_NAME="terraform-local-session"
+
+# Demo sizing overrides.
+export TF_VAR_asg_desired_capacity="1"
+export TF_VAR_asg_max_size="2"
+export TF_VAR_enable_security_hub="false"
+

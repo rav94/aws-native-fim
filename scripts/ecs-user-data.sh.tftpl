@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+
+cat >/etc/ecs/ecs.config <<'EOF'
+ECS_CLUSTER=${cluster_name}
+ECS_ENABLE_CONTAINER_METADATA=true
+EOF
+
+systemctl enable --now ecs
+
