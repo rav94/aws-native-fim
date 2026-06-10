@@ -136,7 +136,7 @@ resource "aws_iam_role_policy" "ecs_ec2_fim_policy" {
 }
 
 resource "aws_ssm_document" "fim_ecs_ec2_check" {
-  name            = "${local.name_prefix}-fim-ecs-ec2-check"
+  name            = "fim-${local.name_prefix}-ecs-ec2-check"
   document_type   = "Command"
   document_format = "JSON"
 
@@ -412,7 +412,7 @@ resource "aws_ssm_document" "fim_ecs_ec2_check" {
 
 resource "aws_ssm_association" "fim_ecs_ec2_check" {
   name                = aws_ssm_document.fim_ecs_ec2_check.name
-  association_name    = "${local.name_prefix}-fim-ecs-ec2-check"
+  association_name    = "fim-${local.name_prefix}-ecs-ec2-check"
   schedule_expression = var.fim_schedule_expression
 
   targets {

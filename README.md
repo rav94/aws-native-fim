@@ -153,6 +153,11 @@ If SSM Parameter Store rejects a name as reserved, make sure the monitored paths
 parameter uses the current `/fim-demo/...` prefix. AWS reserves names beginning
 with `/aws`.
 
+If ECS capacity provider or SSM document creation rejects names beginning with
+`aws`, `ecs`, or another AWS-reserved prefix, keep the generated `fim-...`
+resource names. The project itself can still be named `aws-native-fim`; only
+some AWS resource name fields need a non-reserved prefix.
+
 The first SSM run creates the baseline in S3 and exits without findings. Later
 runs compare the latest hashes against the preserved baseline, upload change
 details to S3, and import a finding into Security Hub when changes are detected.
