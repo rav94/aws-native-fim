@@ -3,6 +3,8 @@
 This Terraform project deploys a low-cost, standalone demo of an AWS-native File
 Integrity Monitoring implementation for ECS on EC2.
 
+![AWS Native FIM Architecture Diagram](diagrams/aws-native-fim.drawio.png)
+
 The demo starts from its own VPC and creates:
 
 - A VPC using `172.20.0.0/16` by default instead of `10.0.0.0/8`
